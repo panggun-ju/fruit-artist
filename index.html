@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Artist - 현대미술 에디션</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    
+    <div id="game-container">
+        <div class="vignette" id="vignette"></div>
+        <div class="film-grain" id="film-grain" aria-hidden="true"></div>
+        <div class="spotlight-beam"></div>
+        <div class="crowd-silhouette"></div>
+        <div class="security-line" aria-hidden="true"></div>
+        <div class="flash-effect" id="flash"></div>
+        <div class="art-label-wrap" id="art-label-wrap">
+            <div class="art-label" id="art-label" aria-live="polite">
+                <span class="art-label__artist" id="art-label-artist">작가 미상</span>
+                <span class="art-label__title-line" id="art-label-title-line"></span>
+                <span class="art-label__medium" id="art-label-medium"></span>
+            </div>
+            <div class="sold-dot" id="sold-dot" title="Sold" aria-hidden="true"></div>
+        </div>
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="ui-layer">
+            <div id="score-display">가치: $0</div>
+            <div id="timer-display">10.0초</div>
+            <div id="message-display"></div>
+        </div>
+
+        <div id="start-screen">
+            <button type="button" onclick="startGame()">전시회 입장</button>
+        </div>
+
+        <div id="end-screen">
+            <div class="void-placard" id="void-placard" aria-hidden="true"></div>
+            <div class="end-screen__footer">
+                <button type="button" onclick="resetGame()">새로운 작품 제작</button>
+            </div>
+            <div id="coa-scroll-dock" class="coa-scroll-dock">
+                <div id="certificate" class="certificate certificate--panel" role="region" aria-label="진품 보증서">
+                    <p class="certificate__eyebrow">Fruit Artist · Digital Edition</p>
+                    <h2 class="certificate__heading">진품 보증서</h2>
+                    <p class="certificate__subtitle">Certificate of Authenticity</p>
+                    <div class="certificate__rule"></div>
+                    <p class="certificate__label">작품 제목</p>
+                    <p class="certificate__title" id="coa-title">—</p>
+                    <p class="certificate__label">작품 설명</p>
+                    <p class="certificate__description" id="coa-description">—</p>
+                    <p class="certificate__wall-note" id="coa-wall-note"></p>
+                    <p class="certificate__label">최종 가치 (Price)</p>
+                    <p class="certificate__price" id="coa-price">—</p>
+                    <p class="certificate__label">고유 일련번호</p>
+                    <p class="certificate__serial" id="coa-serial">—</p>
+                    <p class="certificate__edition" id="coa-edition"></p>
+                    <p class="certificate__guarantee" id="coa-guarantee">본 디지털 박제물은 예술적 가치를 보증함</p>
+                    <p class="certificate__sign">Curatorial Office</p>
+                </div>
+                <button type="button" id="coa-scroll-roll" class="coa-scroll-roll" aria-expanded="false" aria-controls="certificate" title="보증서 펼치기 / 접기">
+                    <span class="coa-scroll-roll__cap coa-scroll-roll__cap--top" aria-hidden="true"></span>
+                    <span class="coa-scroll-roll__body">
+                        <span class="coa-scroll-roll__mark">COA</span>
+                        <span class="coa-scroll-roll__hint">펼치기</span>
+                    </span>
+                    <span class="coa-scroll-roll__cap coa-scroll-roll__cap--bottom" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
